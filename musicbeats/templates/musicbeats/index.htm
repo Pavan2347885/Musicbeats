@@ -1,5 +1,6 @@
 <head>
   <style>
+    
     footer{
       background-color: #111;
       
@@ -62,12 +63,24 @@
     .footerBottom p{
       color: white;
     }
+    .fg{
+      font-family: "Playwrite AT", cursive;
+      font-optical-sizing: auto;
+      font-weight: <weight>;
+      font-style: normal;
+    }
+
+
+
+
   </style>
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Edu+AU+VIC+WA+NT+Hand:wght@400..700&family=Kalnia+Glaze:wght@100..700&family=Playwrite+AT:ital,wght@0,100..400;1,100..400&display=swap" rel="stylesheet">
 </head>
 
 {%extends 'musicbeats/basic.htm'%}
@@ -76,58 +89,70 @@
 {% block body %}
     {% load static %} 
     
-      <div class="container  rounded my-2 px-2 " style="background-color:black">
+      <div class="container  rounded my-2 " style="background-color:black">
         <div class="row py-3">
         <div class="col-sm">
           <img src="{% static 'musicbeats/music-3.jpg' %}" class="card-img-top rounded " alt="...">
         </div>
         <div class="col-sm justify-content-center py-4 my-4">
-           <h6 class="text-light">He took his pain and turned it into something beautiful Into something that people connect to. And that's what good music does.<br> <br>It speaks to you. It changes you.Music is the great uniter. <br><br>An incredible force. Something that people who differ on everything and anything else can have in common.I like beautiful melodies telling me terrible things.</h6>
+           <h6 class="text-light fg">Music, with its universal language and emotive power, holds a unique place in human culture and expression. From ancient melodies echoing through history to modern compositions transcending genres, music has the ability to evoke nostalgia, stir deep emotions, and unite diverse communities. Whether it's the rhythmic beats that move our bodies, the soulful melodies that touch our hearts, or the lyrics that articulate our innermost thoughts, music serves as a powerful form of communication and self-expression</h6>
           </div>
            
       </div>
 
     </div>
     <!-- ################################ CARDS ##################################################### -->
-
+  
     <h2 style="padding-left: 8%; padding-top: 2%; font-family: 'Verdana';" class="text-light" ata-aos="fade-left">Trending Songs</h2>
-
-    <div class="row" style="padding-top: 2%; padding-left: 7%;">
-    {% for i in song %}
-    <div style="padding-left: 2%; padding-top: 1%;">
-    <div class="card" style="width: 18rem;">
-      <img src="{{i.image}}" class="card-img-top" alt="...">
-      <div class="card-body border-primary" style="background-color:black">
-        <h5 class="card-title" style="color:white">{{i.name}}</h5>
-        <p class="card-text" style="color: green;">Tags: {{i.tags}}</p>
-        <p class="card-text" style="color: green;">Movie: {{i.movie}}</p>
-        <a href="/musicbeats/songs/{{i.song_id}}" class="btn btn-outline-danger ">Listen Song</a>
-      </div>
+    <div class="container">
+      <div class="row ">
+      {% for i in song %}
+      <div class="col-lg ">
+        
+  <div style=" padding-top: 2%;">
+  <div class="card" style="width: 18rem;">
+    <img src="{{i.image}}" class="card-img-top" alt="...">
+    <div class="card-body border-primary" style="background-color:black">
+      <h5 class="card-title" style="color:white">{{i.name}}</h5>
+      <p class="card-text" style="color: green;">Tags: {{i.tags}}</p>
+      <p class="card-text" style="color: green;">Movie: {{i.movie}}</p>
+      <a href="/musicbeats/songs/{{i.song_id}}" class="btn btn-outline-danger ">Listen Song</a>
     </div>
   </div>
-  {% endfor %}
   </div>
-  <hr>
+  </div>
+  {% endfor %}
+  
+    
+    </div>
+  </div>
 
   <h3 style="padding-left: 8%; padding-top: 2%; font-family: 'Verdana';" class="text-light">Your Listen Later</h3>
 
-  <div class="row" style="padding-top: 2%; padding-left: 7%;">
+
+<div class="container">
+  <div class="row">
     {% for i in watch reversed %}
-    <div style="padding-left: 2%; padding-top: 1%;">
-    <div class="card" style="width: 18rem;" >
-      <img src="{{i.image}}" class="card-img-top" alt="...">
-      <div class="card-body" style="background-color:black">
-        <h5 class="card-title" style="color:white">{{i.name}}</h5>
-        <p class="card-text" style="color: green;">Tags: {{i.tags}}</p>
-        <p class="card-text" style="color: green;">Movie: {{i.movie}}</p>
-        <a href="/musicbeats/songs/{{i.song_id}}" class="btn btn-outline-danger ">Listen Song</a>
-      </div>
-    </div>
+    <div class="col-lg ">
+   
+<div style=" padding-top: 1%;">
+<div class="card" style="width: 18rem;" >
+  <img src="{{i.image}}" class="card-img-top" alt="...">
+  <div class="card-body" style="background-color:black">
+    <h5 class="card-title" style="color:white">{{i.name}}</h5>
+    <p class="card-text" style="color: green;">Tags: {{i.tags}}</p>
+    <p class="card-text" style="color: green;">Movie: {{i.movie}}</p>
+    <a href="/musicbeats/songs/{{i.song_id}}" class="btn btn-outline-danger ">Listen Song</a>   
+  </div>
+</div>
+</div>
+
   </div>
   {% endfor %}
-  </div>
-  <hr>
-  
+</div>
+</div>
+<br>
+
 
   <footer>
     <div class="footerContainer">
@@ -142,7 +167,7 @@
             <ul><li><a href="index.html">Home</a></li>
                 <li><a href="">News</a></li>
                 <li><a href="about.html">About</a></li>
-                <li><a href="">ContactUs</a></li>
+              
                 
             </ul>
         </div>
@@ -151,8 +176,7 @@
     <div class="footerBottom">
         <p>Copyright &copy;2023; Designed by <span class="designer">MusicBeats</span></p>
     </div>
-</footer>
- 
+  </footer>
 
 
 
